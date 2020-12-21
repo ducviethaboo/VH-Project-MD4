@@ -6,7 +6,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -47,7 +46,8 @@
             </form>
         </div>
     </nav>
-    <div class="container">
+
+    <div class="container mt-5">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h2>Product List</h2>
@@ -56,27 +56,31 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Tên sản phẩm</th>
-                            <th>Loại</th>
-                            <th>Màu sắc</th>
-                            <th>Giá</th>
+                            <th>ProductName</th>
+                            <th>ProductType</th>
+                            <th>ProductColor</th>
+                            <th>ProductPrice</th>
+                            <th>ProductDesc</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let product of products | async">
-                            <!-- <td>{{employee.firstName}}</td>
-                        <td>{{employee.lastName}}</td>
-                        <td>{{employee.emailId}}</td> -->
-                            <td>{{product.productName}}</td>
-                            <td>{{product.productType}}</td>
-                            <td>{{product.productColor}}</td>
-                            <td>{{product.productPrice}}</td>
+                        <tr *ngFor="let value of product | async">
+                            <td>{{value.productName}}</td>
+                            <td>{{value.productType}}</td>
+                            <td>{{value.productColor}}</td>
+                            <td>{{value.productPrice}}</td>
+                            <td>{{value.productDesc}}</td>
+                            <td><button (click)="deleteEmployee(value.id)" class="btn btn-danger">Delete</button>
+                                <button (click)="employeeDetails(value.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
