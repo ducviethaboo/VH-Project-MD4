@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateProductComponent } from './create-product/create-product.component';
@@ -13,6 +14,7 @@ import { UpdateProductComponent } from './update-product/update-product.componen
 @NgModule({
   declarations: [
     AppComponent,
+
     CreateProductComponent,
     ProductDetailsComponent,
     ProductListComponent,
