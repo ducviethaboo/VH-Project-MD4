@@ -1,8 +1,8 @@
-import { Product } from '../products';
 import { Component, OnInit, Input } from '@angular/core';
 import { ProductService } from '../products.service';
 import { ProductListComponent } from '../product-list/product-list.component';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Products } from '../products';
 
 @Component({
   selector: 'app-product-details',
@@ -12,13 +12,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ProductDetailsComponent implements OnInit {
 
   id!: number;
-  product!: Product;
+  product!: Products;
 
   constructor(private route: ActivatedRoute,private router: Router,
     private productService: ProductService) { }
 
   ngOnInit() {
-    this.product = new Product();
+    this.product = new Products();
 
     this.id = this.route.snapshot.params['id'];
     console.log(this.id);
@@ -32,4 +32,9 @@ export class ProductDetailsComponent implements OnInit {
   productDetails(id: number){
     this.router.navigate(['products', id]);
   }
+  
+  list(){
+    this.router.navigate(['products']);
+  }
+  
 }

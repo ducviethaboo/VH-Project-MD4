@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Product } from '../products';
+import { Products } from '../products';
 import { ProductService } from '../products.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { ProductService } from '../products.service';
 })  
 export class ProductListComponent implements OnInit {
 
-  product!: Observable<Product[]>;
+  product!: Observable<Products[]>;
 
   constructor(private ProductService: ProductService,
     private router: Router) {}
@@ -22,11 +22,11 @@ export class ProductListComponent implements OnInit {
   }
 
   reloadData() {
-
     this.product = this.ProductService.getProductList();
   }
 
   deleteProduct(id: number) {
+    console.log(id);
     this.ProductService.deleteProduct(id)
       .subscribe(
         data => {
@@ -37,7 +37,8 @@ export class ProductListComponent implements OnInit {
   }
 
   productDetails(id: number){
-    this.router.navigate(['products', id]);
+    this.router.navigate(['details', id]);
   }
+
 
 }

@@ -3,11 +3,13 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductListComponent } from './product-list/product-list.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: 'products', component: ProductListComponent },
-  { path: 'products/:id', component: ProductDetailsComponent },
+  { path: 'details/:id', component: ProductDetailsComponent },
+  { path: 'update/:id', component: UpdateProductComponent },
 ];
 
 @NgModule({
