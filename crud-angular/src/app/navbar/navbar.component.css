@@ -1,0 +1,14 @@
+.nav-link {
+    color: black!important;
+    margin-left: 25px;
+}
+
+.nav-link:hover {
+    color: orange!important;
+}
+
+.navbar-brand {
+    color: orange!important;
+    font-family: serif!important;
+    font-size: 30px;
+}

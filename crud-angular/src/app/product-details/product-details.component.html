@@ -1,21 +1,26 @@
-<h2>Chi tiết xe</h2>
-
-<hr/>
-<div *ngIf="product">
-    <div>
-        <label><b>Mô tả sản phẩm: </b></label> {{product.productDesc}}
+<div class="card mt-5">
+    <div class="card-body">
+        <h2>Chi tiết xe</h2>
     </div>
-    <div>
-        <label><b>Màu sắc: </b></label> {{product.productColor}}
+    <hr/>
+    <div class="card-body mt-2">
+        <div *ngIf="product">
+            <div>
+                <label><b>Mô tả sản phẩm: </b></label> {{product.productDesc}}
+            </div>
+            <div>
+                <label><b>Màu sắc: </b></label> {{product.productColor}}
+            </div>
+            <div>
+                <label><b>Giá: </b></label> {{product.productPrice}}
+            </div>
+        </div>
     </div>
-    <div>
-        <label><b>Giá: </b></label> {{product.productPrice}}
+    <br>
+    <br>
+    <div style="text-align: center">
+        <button style="width: 200px" (click)="list()" class="btn btn-primary">Quay lại danh sách xe</button>
     </div>
-
+    <br>
+    <br>
 </div>
-
-<br>
-<br>
-
-
-<button (click)="list()" class="btn btn-primary">Quay lại danh sách xe</button><br>
