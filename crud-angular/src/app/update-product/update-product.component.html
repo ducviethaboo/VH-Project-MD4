@@ -1,6 +1,6 @@
 <h3>Update Employee</h3>
-<div [hidden]="submitted" style="width: 400px;">
-    <form (ngSubmit)="onSubmit()">
+<div [hidden]="submitted" style="width: 1000px;">
+    <form (ngSubmit)="onSubmit()"  style="margin-left: 100px;" >
         <div class="form-group">
             <label>Tên xe</label>
             <input type="text" class="form-control" required [(ngModel)]="product.productName" name="productName">
@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
             <label>Mô tả</label>
-            <input type="text" class="form-control" required [(ngModel)]="product.productDesc" name="productDesc">
+            <textarea name="productDesc" class="form-control" required [(ngModel)]="product.productDesc" ></textarea>
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
     </form>
