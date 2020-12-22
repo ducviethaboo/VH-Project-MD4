@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Product } from '../products';
+import { Products } from '../products';
 import { ProductService } from '../products.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { ProductService } from '../products.service';
 })  
 export class ProductListComponent implements OnInit {
 
-  product!: Observable<Product[]>;
+  product!: Observable<Products[]>;
 
   constructor(private ProductService: ProductService,
     private router: Router) {}
