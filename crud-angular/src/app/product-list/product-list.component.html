@@ -20,9 +20,9 @@
                     <tr>
                         <th>ProductName</th>
                         <th>ProductType</th>
-                        <th>ProductColor</th>
+                        <!-- <th>ProductColor</th> -->
                         <th>ProductPrice</th>
-                        <th>ProductDesc</th>
+                        <!-- <th>ProductDesc</th> -->
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -30,9 +30,9 @@
                     <tr *ngFor="let value of product | async">
                         <td>{{value.productName}}</td>
                         <td>{{value.productType}}</td>
-                        <td>{{value.productColor}}</td>
+                        <!-- <td>{{value.productColor}}</td> -->
                         <td>{{value.productPrice}}</td>
-                        <td>{{value.productDesc}}</td>
+                        <!-- <td>{{value.productDesc}}</td> -->
                         <td><button (click)="deleteEmployee(value.id)" class="btn btn-danger">Delete</button>
                             <button (click)="employeeDetails(value.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
                         </td>
