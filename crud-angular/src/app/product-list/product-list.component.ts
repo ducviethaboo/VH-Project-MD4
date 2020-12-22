@@ -2,14 +2,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Product } from '../product';
-import { ProductService } from '../product.service';
+import { Product } from '../products';
+import { ProductService } from '../products.service';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
-})
+})  
 export class ProductListComponent implements OnInit {
 
   product!: Observable<Product[]>;
@@ -26,18 +26,10 @@ export class ProductListComponent implements OnInit {
     this.product = this.ProductService.getProductList();
   }
 
-  deleteEmployee(id: number) {
-    this.ProductService.deleteProduct(id)
-      .subscribe(
-        data => {
-          console.log(data);
-          this.reloadData();
-        },
-        error => console.log(error));
-  }
 
-  employeeDetails(id: number){
-    this.router.navigate(['details', id]);
+
+  productDetails(id: number){
+    this.router.navigate(['products', id]);
   }
 
 }
