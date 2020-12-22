@@ -18,7 +18,7 @@ export class ProductService {
   }
 
   createProduct(product: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}`, product);
+    return this.http.post(`${this.baseUrl}/add`, product);
   }
 
   updateProduct(id: number, value: any): Observable<Object> {

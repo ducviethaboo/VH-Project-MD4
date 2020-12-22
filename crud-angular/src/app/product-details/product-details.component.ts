@@ -32,4 +32,6 @@ export class ProductDetailsComponent implements OnInit {
   list(){
     this.router.navigate(['products']);
   }
+  
+  
 }
