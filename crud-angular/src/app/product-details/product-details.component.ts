@@ -1,4 +1,3 @@
-import { Product } from '../products';
 import { Component, OnInit, Input } from '@angular/core';
 import { ProductService } from '../products.service';
 import { ProductListComponent } from '../product-list/product-list.component';
@@ -13,7 +12,7 @@ import { Products } from '../products';
 export class ProductDetailsComponent implements OnInit {
 
   id!: number;
-  product!: Product;
+  product!: Products;
 
   constructor(private route: ActivatedRoute,private router: Router,
     private productService: ProductService) { }
@@ -30,7 +29,7 @@ export class ProductDetailsComponent implements OnInit {
       }, error => console.log(error));
   }
 
-  productDetails(id: number){
-    this.router.navigate(['products', id]);
+  list(){
+    this.router.navigate(['products']);
   }
 }
