@@ -1,4 +1,5 @@
-export class Product {
+
+export class Products {
    id! : number;
    productName! : string;
    productType! : string;
