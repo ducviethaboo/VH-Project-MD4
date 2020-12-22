@@ -21,4 +21,7 @@ export class ProductService {
     console.log('this');
     return this.http.get(`${this.baseUrl}/${id}`);
   }
+  deleteProduct(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+  }
 }

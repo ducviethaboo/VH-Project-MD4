@@ -22,14 +22,23 @@ export class ProductListComponent implements OnInit {
   }
 
   reloadData() {
-
     this.product = this.ProductService.getProductList();
   }
 
-
+  deleteProduct(id: number) {
+    console.log(id);
+    this.ProductService.deleteProduct(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.reloadData();
+        },
+        error => console.log(error));
+  }
 
   productDetails(id: number){
-    this.router.navigate(['products', id]);
+    this.router.navigate(['details', id]);
   }
+
 
 }

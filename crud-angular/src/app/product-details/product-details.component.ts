@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ProductService } from '../product.service';
 import { ProductListComponent } from '../product-list/product-list.component';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Products } from '../products';
 
 @Component({
   selector: 'app-product-details',
@@ -18,7 +19,7 @@ export class ProductDetailsComponent implements OnInit {
     private productService: ProductService) { }
 
   ngOnInit() {
-    this.product = new Product();
+    this.product = new Products();
 
     this.id = this.route.snapshot.params['id'];
     console.log(this.id);
