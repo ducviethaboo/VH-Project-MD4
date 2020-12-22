@@ -11,7 +11,6 @@
 </head>
 
 <body>
-    <app-navbar></app-navbar>
     <div class="container mt-5">
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -31,6 +30,7 @@
                         <tr *ngFor="let value of product | async">
                             <td> <a href="">Mercedes Benz {{value.productName}}</a> </td>
                             <td>{{value.productType}}</td>
+
                             <td>{{value.productColor}}</td>
                             <td><button (click)="deleteProduct(value.id)" class="btn btn-danger">Xoá</button>
                                 <button (click)="productDetails(value.id)" class="btn btn-info" style="margin-left: 10px">Chi tiết</button>
