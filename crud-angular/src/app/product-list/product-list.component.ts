@@ -2,14 +2,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Product } from '../product';
-import { ProductService } from '../product.service';
+import { Product } from '../products';
+import { ProductService } from '../products.service';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
-})
+})  
 export class ProductListComponent implements OnInit {
 
   product!: Observable<Product[]>;
