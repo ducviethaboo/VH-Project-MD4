@@ -29,8 +29,8 @@ export class ProductDetailsComponent implements OnInit {
       }, error => console.log(error));
   }
 
-  productDetails(id: number){
-    this.router.navigate(['products', id]);
+  list(){
+    this.router.navigate(['products']);
   }
   
   list(){
