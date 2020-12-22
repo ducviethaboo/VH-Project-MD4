@@ -1,0 +1,11 @@
+.products:hover {
+    color: orange;
+}
+
+.delete:hover {
+    background-color: red!important;
+}
+
+.update:hover {
+    background-color: greenyellow;
+}
