@@ -5,6 +5,7 @@ export class Products {
    productType! : string;
    productColor! : string;
    productPrice! : string;
+   productImg! : string;
    productDesc! : string;
    active!: boolean;
 }
