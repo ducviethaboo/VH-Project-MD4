@@ -32,4 +32,9 @@ export class ProductService {
   getProductList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
+
+  searchName(key: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/search/${key}`);
+
+  }
 }

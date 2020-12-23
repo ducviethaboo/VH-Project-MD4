@@ -13,6 +13,7 @@ import { ProductService } from '../products.service';
 export class ProductListComponent implements OnInit {
 
   product!: Observable<Products[]>;
+  name!: string;
 
   constructor(private ProductService: ProductService,
     private router: Router) {}
@@ -39,6 +40,10 @@ export class ProductListComponent implements OnInit {
   productDetails(id: number){
     this.router.navigate(['details', id]);
   }
+
+  searchName() {
+    this.product = this.ProductService.searchName(this.name)
+  } 
 
 
 }

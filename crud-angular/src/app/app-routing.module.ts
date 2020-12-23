@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'add', component: CreateProductComponent },
   { path: 'details/:id', component: ProductDetailsComponent },
   { path: 'update/:id', component: UpdateProductComponent },
+  { path: 'search/:key', component: ProductListComponent },
 ];
 
 @NgModule({
