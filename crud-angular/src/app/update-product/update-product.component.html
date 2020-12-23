@@ -4,28 +4,48 @@
     </div>
     <div class="card-body">
         <div [hidden]="submitted" style="width: 1000px;">
-            <form (ngSubmit)="onSubmit()" style="margin-left: 100px;">
+            <form #update="ngForm" (ngSubmit)="onSubmit()" style="margin-left: 100px;">
                 <div class="form-group">
-                    <label>Tên xe:</label>
-                    <input type="text" class="form-control" required [(ngModel)]="product.productName" name="productName">
+                    <label for="name">Tên xe:</label>
+                    <input type="text" class="form-control" required pattern="^[a-zA-Z]+[a-zA-Z0-9]+" #productName="ngModel" [class.is-invalid]="productName.invalid && productName.touched" [(ngModel)]="product.productName" name="productName">
+                    <div *ngIf="productName.errors && (productName.valid || productName.touched)">
+                        <small class="text-danger" *ngIf="productName.errors.required">Tên sản phẩm không được để trống</small>
+                        <small class="text-danger" *ngIf="productName.errors.pattern">Tên sản phẩm không được để kí tự đặc biệt</small>
+                    </div>
                 </div>
+
                 <div class="form-group">
-                    <label>Loại xe:</label>
-                    <input type="text" class="form-control" required [(ngModel)]="product.productType" name="productType">
+                    <label for="name">Loại xe:</label>
+                    <input type="text" class="form-control" required pattern="^[a-zA-Z]+[a-zA-Z]" #productType="ngModel" [class.is-invalid]="productType.invalid && productType.touched" [(ngModel)]="product.productType" name="productType">
+                    <div *ngIf="productType.errors && (productType.valid || productType.touched)">
+                        <small class="text-danger" *ngIf="productType.errors.required">Loại xe không được để trống</small>
+                        <small class="text-danger" *ngIf="productType.errors.pattern">Loại xe không được để kí tự đặc biệt</small>
+                    </div>
                 </div>
+
                 <div class="form-group">
-                    <label>Màu xe:</label>
-                    <input type="text" class="form-control" required [(ngModel)]="product.productColor" name="productColor">
+                    <label for="name">Màu xe:</label>
+                    <input type="text" class="form-control" required pattern="^[a-zA-Z]+[a-zA-Z]" #productColor="ngModel" [class.is-invalid]="productColor.invalid && productColor.touched" [(ngModel)]="product.productColor" name="productColor">
+                    <div *ngIf="productColor.errors && (productColor.valid || productColor.touched)">
+                        <small class="text-danger" *ngIf="productColor.errors.required">Màu xe không được để trống</small>
+                        <small class="text-danger" *ngIf="productColor.errors.pattern">Màu xe không được để kí tự đặc biệt</small>
+                    </div>
                 </div>
+
                 <div class="form-group">
-                    <label>Gía xe:</label>
-                    <input type="text" class="form-control" required [(ngModel)]="product.productPrice" name="productPrice">
+                    <label for="name">Giá:</label>
+                    <input type="text" class="form-control" required pattern="^[0-9]+[0-9]" #productPrice="ngModel" [class.is-invalid]="productPrice.invalid && productPrice.touched" [(ngModel)]="product.productPrice" name="productPrice">
+                    <div *ngIf="productPrice.errors && (productPrice.valid || productPrice.touched)">
+                        <small class="text-danger" *ngIf="productPrice.errors.required">Giá xe không được để trống</small>
+                        <small class="text-danger" *ngIf="productPrice.errors.pattern">Giá xe không được để kí tự đặc biệt</small>
+                    </div>
                 </div>
+
                 <div class="form-group">
-                    <label>Mô tả:</label>
-                    <textarea name="productDesc" class="form-control" required [(ngModel)]="product.productDesc"></textarea>
+                    <label for="name">Mô tả:</label>
+                    <textarea type="text" class="form-control" required [(ngModel)]="product.productDesc" name="productDesc"></textarea>
                 </div>
-                <button type="submit" class="edit btn btn-success">Cập nhật</button>
+                <button [disabled]="update.form.invalid" type="submit" class="edit btn btn-success">Cập nhật</button>
             </form>
         </div>
     </div>
