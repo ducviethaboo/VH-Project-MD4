@@ -3,6 +3,7 @@ import { ProductService } from '../products.service';
 import { Products } from '../products';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-create-product',
@@ -13,7 +14,6 @@ export class CreateProductComponent implements OnInit {
 
   product: Products = new Products();
   submitted = false;
-
   constructor(private ProductService: ProductService,
     private router: Router) { }
 
