@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NotificationService } from './notification.service'
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'crud-angular';
+  title = 'toaster-not';
+  
+  constructor(private notifyService : NotificationService) { }
+  
+  showToasterSuccess(){
+      this.notifyService.showSuccess("Data shown successfully !!", "ItSolutionStuff.com")
+  }
+  
+  showToasterError(){
+      this.notifyService.showError("Something is wrong", "ItSolutionStuff.com")
+  }
 }

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Products } from '../products';
 import { ProductService } from '../products.service';
+import { NotificationService } from '../notification.service'
+
+
 
 @Component({
   selector: 'app-update-product',
@@ -16,7 +19,8 @@ export class UpdateProductComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute, private router: Router,
-    private productService: ProductService) { }
+    private productService: ProductService,
+    private notifyService : NotificationService) { }
 
   ngOnInit() {
     this.product = new Products();
@@ -45,6 +49,10 @@ export class UpdateProductComponent implements OnInit {
 
   gotoList() {
     this.router.navigate(['/products']);
+  }
+
+  updateSuccess() {
+    this.notifyService.showSuccess("Sửa thông tin sản phẩm thành cồng", 'Thông báo!!')
   }
 
 }

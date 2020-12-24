@@ -4,6 +4,7 @@ import { Products } from '../products';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {NgForm} from '@angular/forms';
+import { NotificationService } from '../notification.service'
 
 @Component({
   selector: 'app-create-product',
@@ -15,7 +16,7 @@ export class CreateProductComponent implements OnInit {
   product: Products = new Products();
   submitted = false;
   constructor(private ProductService: ProductService,
-    private router: Router) { }
+    private router: Router,private notifyService : NotificationService) { }
 
   ngOnInit() {
   }
@@ -42,5 +43,9 @@ export class CreateProductComponent implements OnInit {
 
   gotoList() {
     this.router.navigate(['/products']);
+  }
+
+  addSuccess() {
+    this.notifyService.showSuccess('Thêm xe thành công', 'Thông báo!')
   }
 }
