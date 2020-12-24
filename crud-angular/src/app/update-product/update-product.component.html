@@ -45,7 +45,7 @@
                     <label for="name">Mô tả:</label>
                     <textarea type="text" class="form-control" required [(ngModel)]="product.productDesc" name="productDesc"></textarea>
                 </div>
-                <button [disabled]="update.form.invalid" type="submit" class="edit btn btn-success">Cập nhật</button>
+                <button (click)="updateSuccess()" [disabled]="update.form.invalid" type="submit" class="edit btn btn-success">Cập nhật</button>
                 <button (click)="gotoList()" class="btn btn-primary ml-2">Quay lại danh sách xe</button>
             </form>
         </div>

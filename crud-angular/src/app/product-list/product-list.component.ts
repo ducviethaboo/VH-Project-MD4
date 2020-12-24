@@ -1,22 +1,23 @@
-
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Products } from '../products';
 import { ProductService } from '../products.service';
+import { NotificationService } from '../notification.service'
+
+
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
-})  
+  styleUrls: ['./product-list.component.css'],
+})
 export class ProductListComponent implements OnInit {
-
   product!: Observable<Products[]>;
   name!: string;
 
-  constructor(private ProductService: ProductService,
-    private router: Router) {}
+
+  constructor(private ProductService: ProductService, private router: Router,private notifyService : NotificationService) {}
 
   ngOnInit() {
     this.reloadData();
@@ -28,22 +29,24 @@ export class ProductListComponent implements OnInit {
 
   deleteProduct(id: number) {
     console.log(id);
-    this.ProductService.deleteProduct(id)
-      .subscribe(
-        data => {
-          console.log(data);
-          this.reloadData();
-        },
-        error => console.log(error));
+    this.ProductService.deleteProduct(id).subscribe(
+      (data) => {
+        console.log(data);
+        this.reloadData();
+      },
+      (error) => console.log(error)
+    );
   }
 
-  productDetails(id: number){
+  productDetails(id: number) {
     this.router.navigate(['details', id]);
   }
 
   searchName() {
-    this.product = this.ProductService.searchName(this.name)
-  } 
+      this.product = this.ProductService.searchName(this.name);
+  }
 
-
+  deleteSuccess() {
+    this.notifyService.showSuccess('Xoá sản phẩm thành công.', 'Thông báo!!!')
+  }
 }
