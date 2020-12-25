@@ -35,6 +35,7 @@
                 <table style="text-align: center" class="table table-striped">
                     <thead>
                         <tr>
+                            <th>STT</th>
                             <th>Tên xe</th>
                             <th>Loại xe</th>
                             <th>Màu sắc</th>
@@ -42,11 +43,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let value of product | async">
+                        <tr *ngFor="let value of product | async; index as i">
+                            <td>{{i+1}}</td>
                             <td> <a class="products btn" [routerLink]="['/details', value.id]" routerLinkActive="active">Mercedes Benz {{value.productName}}</a> </td>
                             <td>{{value.productType}}</td>
                             <td>{{value.productColor}}</td>
-                            <td><button (click)="deleteSuccess()" onclick="alert('Bạn chắc chứ?!')" (click)="deleteProduct(value.id)" class="delete btn" style="background-color: orange;">
+                            <td><button onclick="alert('Bạn chắc chứ?!')" (click)="deleteProduct(value.id);deleteSuccess()" class="delete btn" style="background-color: orange;">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
                                   </svg>
